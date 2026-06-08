@@ -1,0 +1,71 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2cm, right=2cm}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage[default]{sourcesanspro}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb, amsmath}
+
+\newcommand{\NombreEstudiante}{The real and complex number systems}
+\newcommand{\Libro}{Principles of Mathematical Analysis}
+\definecolor{StructureColor}{RGB}{40, 80, 120}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\color{StructureColor}\textbf{\Libro}}
+\rhead{\small\NombreEstudiante}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{StructureColor}\leaders\hrule height \headrulewidth\hfill}}
+
+\newtcolorbox{exercisebox}[1]{
+    enhanced, colback=StructureColor!5!white, colframe=StructureColor,
+    coltitle=white, fonttitle=\bfseries\sffamily,
+    title={#1}, sharp corners, boxrule=0.5mm
+}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\begin{exercisebox}{Exercise 1}
+    If $r$ is rational ($r \neq 0$) and $x$ is irrational, prove that $r+x$ and $r \cdot x$ are irrational.
+\end{exercisebox}
+
+\textbf{Solution}
+
+Let $r=\dfrac{a}{b}$ where $a,b \in \mathbb{Z}$ with $a\neq 0,\quad b\neq 0$ and let $x$ be irrational.
+
+Part 1 - $r+x$ is irrational 
+
+Suppose, for contradiction, that $r+ x$ is rational. Then there exist $c,d\in \mathbb{Z}$ with $d\neq 0$ such that
+\[
+r + x = \frac{c}{d}.
+\]
+We can solve for $x$:
+\[
+x = \frac{c}{d} - r= \frac{c}{d}-\frac{a}{b}=\frac{b\cdot c+a\cdot d}{b\cdot d}
+\]
+Note that $b\cdot c+a\cdot d, b \cdot d\in \mathbb{Z}$ with $b\cdot d \neq 0$, so $x$ is rational (contradiction).
+Therefore $r \cdot x$ is irrational. 
+
+Part 2 - $r\cdot x$ is irrational
+
+Suppose, for contradiction, that $rx$ is rational. Then there exist $c,d\in \mathbb{Z}$ with $d\neq 0$ such that
+\[
+r \cdot x = \frac{c}{d}.
+\]
+Since $r\neq 0$, we can solve for $x$:
+\[
+x = \frac{c}{r\cdot d} = \frac{c\cdot b}{a \cdot d}.
+\]
+Note that $c\cdot b, a \cdot d\in \mathbb{Z}$ with $a \cdot d \neq 0$, so $x$ is rational (contradiction).
+Therefore $r \cdot x$ is irrational. $\blacksquare$
+
+\end{document}

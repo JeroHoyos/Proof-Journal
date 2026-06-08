@@ -1,0 +1,45 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2cm, right=2cm}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage[default]{sourcesanspro}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb, amsmath}
+
+\newcommand{\Book}{Book Title}
+\newcommand{\Chapter}{Chapter Title}
+\definecolor{StructureColor}{RGB}{40, 80, 120}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\color{StructureColor}\textbf{\Book}}
+\rhead{\small\Chapter}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{StructureColor}\leaders\hrule height \headrulewidth\hfill}}
+
+\newtcolorbox{exercisebox}[1]{
+    enhanced, colback=StructureColor!5!white, colframe=StructureColor,
+    coltitle=white, fonttitle=\bfseries\sffamily,
+    title={#1}, sharp corners, boxrule=0.5mm
+}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\begin{exercisebox}{Exercise N}
+    % Enunciado aquí
+\end{exercisebox}
+
+\textbf{Solution}
+
+% Solución aquí
+
+\end{document}

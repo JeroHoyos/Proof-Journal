@@ -11,4 +11,4 @@ proof-journal/
 └── Book-Name/
     ├── exercise1-chX.tex
     └── ...
-```"# Proof-Journal" 
+```
