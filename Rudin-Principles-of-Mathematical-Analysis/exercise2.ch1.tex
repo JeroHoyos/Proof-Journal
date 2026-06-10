@@ -1,0 +1,135 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2cm, right=2cm}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage[default]{sourcesanspro}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb, amsmath}
+
+\newcommand{\Book}{Principles of Mathematical Analysis}
+\newcommand{\Chapter}{The real and complex number systems}
+\definecolor{StructureColor}{RGB}{40, 80, 120}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\color{StructureColor}\textbf{\Book}}
+\rhead{\small\Chapter}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{StructureColor}\leaders\hrule height \headrulewidth\hfill}}
+
+\newtcolorbox{exercisebox}[1]{
+    enhanced, colback=StructureColor!5!white, colframe=StructureColor,
+    coltitle=white, fonttitle=\bfseries\sffamily,
+    title={#1}, sharp corners, boxrule=0.5mm
+}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\begin{exercisebox}{Exercise 2}
+    Prove that there is no rational number whose square is 12.
+\end{exercisebox}
+
+\textbf{Solution}
+
+Suppose, for contradiction, that there exists a rational number $x$ such that $x^2=12$.
+
+Note that
+\[
+\begin{aligned}
+    x^2&=12\\
+    x&=\sqrt{12}\\
+    x&=\sqrt{4\cdot 3}\\
+    x&= 2\sqrt{3}
+\end{aligned}
+\]
+Since $\sqrt{3}$ is irrational (Proposition), which implies that $x$ is also irrational, this is a contradiction .
+
+Therefore, there is no rational number whose square is 12. $\blacksquare$
+
+\newpage
+
+\begin{exercisebox}{Proposition}
+    $\sqrt{3}$ is irrational.
+\end{exercisebox}
+
+\textbf{Solution}
+
+Suppose, for contradiction, that $\sqrt{3}$ is a rational number. Then exists $a,b\in \mathbb{Z}$ with $a,b\neq 0$ such that
+\[
+\sqrt{3} = \dfrac{a}{b},
+\]
+where $a$ and $b$ are coprime. So,
+\[
+\begin{aligned}
+    \sqrt{3}\cdot b &= a
+\end{aligned}
+\]
+if b is even.
+
+Then $b=2\cdot k$. Note that
+\[
+\begin{aligned}
+    \sqrt{3}\cdot b &= a\\
+    \sqrt{3} \cdot 2 \cdot k &= a\\
+    2 \cdot (k \cdot \sqrt{3}) &= a
+\end{aligned}
+\]
+
+Note that $a$ and $b$ are even, this is a contradiction.
+
+if b is odd.
+
+Then $b=2\cdot k + 1$. Note that
+
+\[
+\begin{aligned}
+    \sqrt{3}\cdot b &= a\\
+    \sqrt{3} \cdot (2\cdot k + 1) &= a\\
+     (\sqrt{3} \cdot (2\cdot k + 1))^2&= a^2\\
+     3 \cdot (4\cdot k^2+4 \cdot k+1)&=a^2\\
+     12 \cdot k^2 + 12 \cdot k + 3&= a^2\\
+     12 \cdot k^2 + 12 \cdot k + 2 + 1 &= a^2\\
+     2(6 \cdot k^2 + 6 \cdot k + 1) + 1 &= a^2
+\end{aligned}
+\]
+
+if a is even
+
+Then $a=2\cdot q$. Note that
+\[
+\begin{aligned}
+     2\cdot(6 \cdot k^2 + 6 \cdot k + 1) + 1&= a^2\\
+     2\cdot(6 \cdot k^2 + 6 \cdot k + 1) + 1&= (2\cdot q)^2\\
+     2\cdot(6 \cdot k^2 + 6 \cdot k + 1) + 1&= 4\cdot q^2\\
+     2\cdot(6 \cdot k^2 + 6 \cdot k + 1) + 1 &= 2 \cdot (2\cdot q^2)\\
+\end{aligned}
+\]
+
+The left side is a odd number and the right side is even number, this is a contradiction,
+
+if a is even
+
+Then $a=2\cdot q+1$. Note that
+\[
+\begin{aligned}
+     2\cdot(6 \cdot k^2 + 6 \cdot k + 1) + 1&= a^2\\
+     2\cdot(6 \cdot k^2 + 6 \cdot k + 1) + 1&= (2\cdot q+1)^2\\
+     2\cdot(6 \cdot k^2 + 6 \cdot k + 1) + 1&= 4\cdot q^2+4\cdot q+1\\
+     6 \cdot k^2 + 6 \cdot k + 1 &= 4\cdot q^2+4\cdot\\
+     2\cdot (3 \cdot k^2 + 3 \cdot k) + 1 &= 2\cdot (2\cdot q^2+2)\cdot
+\end{aligned}
+\]
+
+The left side is a odd number and the right side is even number, this is a contradiction.
+
+Therefore $\sqrt{3}$ is irrational . $\blacksquare$
+\end{document}
