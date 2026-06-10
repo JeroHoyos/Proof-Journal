@@ -1,0 +1,79 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2cm, right=2cm}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage[default]{sourcesanspro}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb, amsmath}
+
+\newcommand{\Book}{Principles of Mathematical Analysis}
+\newcommand{\Chapter}{The real and complex number systems}
+\definecolor{StructureColor}{RGB}{40, 80, 120}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\color{StructureColor}\textbf{\Book}}
+\rhead{\small\Chapter}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{StructureColor}\leaders\hrule height \headrulewidth\hfill}}
+
+\newtcolorbox{exercisebox}[1]{
+    enhanced, colback=StructureColor!5!white, colframe=StructureColor,
+    coltitle=white, fonttitle=\bfseries\sffamily,
+    title={#1}, sharp corners, boxrule=0.5mm
+}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\begin{exercisebox}{Exercise 3}
+Prove the following statements:
+\begin{itemize}
+    \item[(a)] If $x \neq 0$ and $xy = xz$ then $y = z$.
+    \item[(b)] If $x \neq 0$ and $xy = x$ then $y = 1$.
+    \item[(c)] If $x \neq 0$ and $xy = 1$ then $y = 1/x$.
+    \item[(d)] If $x \neq 0$ then $1/(1/x) = x$.
+\end{itemize}
+\end{exercisebox}
+
+\textbf{Solution}
+
+Let $x,y,z \in R$ with $x \neq 0$.
+
+\textbf{Part (a)}
+
+Suppose that $xy=xz$. Note that
+\[
+    y= y \cdot 1= y \cdot (\frac{1}{x}\cdot x)=\frac{1}{x}\cdot(y\cdot x) = \frac{1}{x}\cdot(z\cdot x) = z
+\]
+
+Therefore $y=z$. 
+
+\textbf{Part (b)}
+
+Suppose that $xy=x$. Note that $xy = x \cdot 1$, from Part (a) this implies that $y=1$. 
+
+\textbf{Part (c)}
+
+Suppose that $xy=1$. Note that $xy = x \cdot \dfrac{1}{x}$, from Part (a) this implies that $y=\dfrac{1}{x}$. 
+
+\textbf{Part (d)}
+
+Note that
+
+\[
+\dfrac{1}{\dfrac{1}{x}} = \dfrac{1}{\dfrac{1}{x}} \cdot 1 = \dfrac{1}{\dfrac{1}{x}} \cdot \dfrac{1}{x} \cdot x =x
+\]
+
+Therefore$1/(1/x) = x$. 
+
+All statements were proved. $\blacksquare$
+\end{document}
