@@ -1,0 +1,65 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2cm, right=2cm}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage[default]{sourcesanspro}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb, amsmath}
+
+\newcommand{\Book}{Principles of Mathematical Analysis}
+\newcommand{\Chapter}{The real and complex number systems}
+\definecolor{StructureColor}{RGB}{40, 80, 120}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\color{StructureColor}\textbf{\Book}}
+\rhead{\small\Chapter}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{StructureColor}\leaders\hrule height \headrulewidth\hfill}}
+
+\newtcolorbox{exercisebox}[1]{
+    enhanced, colback=StructureColor!5!white, colframe=StructureColor,
+    coltitle=white, fonttitle=\bfseries\sffamily,
+    title={#1}, sharp corners, boxrule=0.5mm
+}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\begin{exercisebox}{Exercise 5}
+Let $A$ be a nonempty set of real numbers which is bounded below. Let $-A$ be the set of all numbers $-x$, where $x \in A$. Prove that
+\[
+\inf A = -\sup(-A).
+\]
+\end{exercisebox}
+
+\textbf{Solution}
+
+Suppose $\inf A = \beta$ exists (proposition).
+
+Let $x \in A$. Then $\beta \leq x$, so we have $-x \leq -\beta$ (Note that $-x \in -A$). Then $-\beta$ is an upper bound of $-A$.
+
+Let $y$ be such that $y < -\beta$, then $-y > \beta$, then $-y$ is not a lower bound of $A$.
+
+Then there exists an $\hat{x} \in A$ such that $-y > \hat{x}$, then $-\hat{x} > y$ (Note that $-\hat{x} \in -A$) , then $y$ is not an upper bound of $-A$.
+
+Therefore $-\inf A = \sup(-A)$, which implies $\inf A = -\sup(-A)$. $\blacksquare$
+
+\newpage
+
+\begin{exercisebox}{Proposition (Proved on the book)}
+Suppose $S$ is an ordered set with the least-upper-bound property, $B \subset S$, $B$ is not empty, and $B$ is bounded below. Let $L$ be the set of all lower bounds of $B$. Then
+\[ \alpha = \sup L \]
+exists in $S$, and $\alpha = \inf B$.
+\par \quad In particular, $\inf B$ exists in $S$.
+\end{exercisebox}
+
+\end{document}
