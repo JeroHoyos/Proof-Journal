@@ -1,0 +1,61 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2cm, right=2cm}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage[default]{sourcesanspro}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb, amsmath}
+
+\newcommand{\Book}{Book Title}
+\newcommand{\Chapter}{Chapter Title}
+\definecolor{StructureColor}{RGB}{40, 80, 120}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\color{StructureColor}\textbf{\Book}}
+\rhead{\small\Chapter}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{StructureColor}\leaders\hrule height \headrulewidth\hfill}}
+
+\newtcolorbox{exercisebox}[1]{
+    enhanced, colback=StructureColor!5!white, colframe=StructureColor,
+    coltitle=white, fonttitle=\bfseries\sffamily,
+    title={#1}, sharp corners, boxrule=0.5mm
+}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\begin{exercisebox}{Probability Exercise}
+Let $X$ be a random variable such that $X \sim Bin(n, p)$. If $p(x)$ represents the p.m.f. of $X$, show that:
+
+$$
+p(x + 1) = K p(x) ,
+$$
+
+where $K$ depends on $x$ and $n$. Find $K$. Justify your answer.
+\end{exercisebox}
+
+\textbf{Solution}
+
+Note that
+
+\[
+\begin{aligned}
+    p(x+1) &=\binom{n}{x+1} \cdot p^{x+1} \cdot (1 - p)^{n - (x+1)}\\
+    &= \dfrac{(n-x)}{(x+1)} \cdot \dfrac{p}{(1-p)} \cdot \binom{n}{x}\cdot p^{x}\cdot (1 - p)^{n - x}\\
+    &= \dfrac{(n-x)}{(x+1)} \cdot \dfrac{p}{(1-p)} \cdot p(x)
+\end{aligned}
+\]
+
+Therefore, $K(x,n) = \dfrac{(n-x)}{(x+1)} \cdot \dfrac{p}{(1-p)}$.
+
+\end{document}

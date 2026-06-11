@@ -1,0 +1,104 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2cm, right=2cm}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage[default]{sourcesanspro}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb, amsmath}
+
+\newcommand{\Book}{Book Title}
+\newcommand{\Chapter}{Chapter Title}
+\definecolor{StructureColor}{RGB}{40, 80, 120}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\color{StructureColor}\textbf{\Book}}
+\rhead{\small\Chapter}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{StructureColor}\leaders\hrule height \headrulewidth\hfill}}
+
+\newtcolorbox{exercisebox}[1]{
+    enhanced, colback=StructureColor!5!white, colframe=StructureColor,
+    coltitle=white, fonttitle=\bfseries\sffamily,
+    title={#1}, sharp corners, boxrule=0.5mm
+}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\begin{exercisebox}{Probability Exercise}
+    Let $X$ be a random variable such that $X \sim Bin(n, p)$. Find the mode of $X$. Justify your answer.
+\end{exercisebox}
+
+\textbf{Solution}
+
+The mode of $X$ is the $k$ where
+
+\[
+P(X=k) \geq P(X=k+1) \land  P(X=k) \geq P(X=k-1)
+\]
+
+Start solving for $P(X=k) \geq P(X=k+1)$:
+$$
+\begin{aligned}
+    P(X=k) &\geq P(X=k+1)\\\\
+    \dfrac{P(X=k)}{P(X=k+1)}
+    &\geq1\\\\
+    \dfrac{\binom{n}{k}\cdot p^k \cdot (1-p)^{n-k}}
+    {\binom{n}{k+1}\cdot p^{k+1} \cdot (1-p)^{n-(k+1)}}
+    &\geq1\\\\
+    \dfrac{\dfrac{n!}{k!\cdot (n-k)!}}
+    {\dfrac{n!}{(k+1)!\cdot (n-(k+1))!}}
+    \cdot 
+    \dfrac{1-p}{p}
+    &\geq1\\\\
+    \dfrac{(k+1)}{(n-k)}
+    \cdot 
+    \dfrac{1-p}{p}
+    &\geq1\\\\
+    (k+1)(1-p) &\geq (n-k)\cdot p\\\\
+    k - kp + 1 - p &\geq np - kp\\\\
+    k &\geq p(n+1) - 1
+\end{aligned}
+$$
+
+Now solving for $P(X=k) \geq P(X=k-1)$:
+
+$$
+\begin{aligned}
+    P(X=k) &\geq P(X=k-1)\\\\
+    \dfrac{P(X=k)}{P(X=k-1)}
+    &\geq1\\\\
+    \dfrac{\binom{n}{k}\cdot p^k \cdot (1-p)^{n-k}}
+    {\binom{n}{k-1}\cdot p^{k-1} \cdot (1-p)^{n-(k-1)}}
+    &\geq1\\\\
+    \dfrac{\dfrac{n!}{k!\cdot (n-k)!}}
+    {\dfrac{n!}{(k-1)!\cdot (n-k+1)!}}
+    \cdot 
+    \dfrac{p}{1-p}
+    &\geq1\\\\
+    \dfrac{(n-k+1)}{k}
+    \cdot 
+    \dfrac{p}{1-p}
+    &\geq1\\\\
+    (n-k+1)\cdot p &\geq k\cdot(1-p)\\\\
+    np - kp + p &\geq k - kp\\\\
+    k &\leq p(n+1)
+\end{aligned}
+$$
+
+
+
+Therefore, the mode of $X$ is where $k$ is in the interval:
+
+$$\boxed{p(n+1) - 1 \leq k \leq p(n+1)}$$
+
+\end{document}
