@@ -34,12 +34,49 @@
 \begin{document}
 \thispagestyle{fancy}
 
-\begin{exercisebox}{Exercise N}
-    % Enunciado aquí
+\begin{exercisebox}{Probability Exercise}
+Let $X$ be a random variable with cumulative distribution given by;
+
+$$
+F(x) = \begin{cases} 
+0 & ; \quad x < 1 \\
+0.1 & ; \quad 1 \leq x < 2 \\
+0.3 & ; \quad 2 \leq x < 3 \\
+0.7 & ; \quad 3 \leq x < 4 \\
+0.8 & ; \quad 4 \leq x < 5 \\
+1 & ; \quad x \geq 5 
+\end{cases}
+$$
+
+Find the p.m.f. of $X$. Justify your answer.
 \end{exercisebox}
 
 \textbf{Solution}
 
-% Solución aquí
+Calculating the jumps for each point:
+\begin{itemize}
+    \item $p(1) = F(1) - F(1^-) = 0.1 - 0 = 0.1$
+    \item $p(2) = F(2) - F(2^-) = 0.3 - 0.1 = 0.2$
+    \item $p(3) = F(3) - F(3^-) = 0.7 - 0.3 = 0.4$
+    \item $p(4) = F(4) - F(4^-) = 0.8 - 0.7 = 0.1$
+    \item $p(5) = F(5) - F(5^-) = 1.0 - 0.8 = 0.2$
+\end{itemize}
+
+For any other value, there is no jump, so $p(x) = 0$. Since $\sum_{x} p(x) = 0.1 + 0.2 + 0.4 + 0.1 + 0.2 = 1.0$.
+
+Then the p.m.f. of $X$ is given by:
+
+$$
+p(x) = \begin{cases} 
+0.1 & ; \quad x = 1 \\
+0.2 & ; \quad x = 2 \\
+0.4 & ; \quad x = 3 \\
+0.1 & ; \quad x = 4 \\
+0.2 & ; \quad x = 5 \\
+0   & ; \quad \text{otherwise}
+\end{cases}
+$$
+
+
 
 \end{document}
